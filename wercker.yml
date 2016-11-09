@@ -24,4 +24,5 @@ deploy:
             access_key: $AWS_ACCESS_KEY
             secret_key: $AWS_SECRET_KEY
             function_name: $AWS_LAMBDA_FUNCATION_NAME
+            region: ap-northeast-1
             filepath: $WERCKER_SOURCE_DIR/handler.zip
