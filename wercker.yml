@@ -11,7 +11,8 @@ build:
           go version
           go get -t ./...
           entrypoint
-          ls .
+          mv handler.zip $WERCKER_OUTPUT_DIR
+          ls $WERCKER_OUTPUT_DIR
 
 deploy:
     steps:
