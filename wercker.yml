@@ -15,6 +15,10 @@ build:
 
 deploy:
     steps:
+        - script:
+        name: check
+        code: |
+          ls $WERCKER_SOURCE_DIR
         - arjen/lambda:
             access_key: $AWS_ACCESS_KEY
             secret_key: $AWS_SECRET_KEY
