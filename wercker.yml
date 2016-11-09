@@ -13,3 +13,10 @@ build:
           entrypoint
           ls .
 
+deploy:
+    steps:
+        - arjen/lambda:
+            access_key: $AWS_ACCESS_KEY
+            secret_key: $AWS_SECRET_KEY
+            function_name: $AWS_LAMBDA_FUNCATION_NAME
+            filepath: $WERCKER_SOURCE_DIR/handler.zip
