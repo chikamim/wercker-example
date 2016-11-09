@@ -1,7 +1,7 @@
 box: bradex/aws-lambda-go
 build:
   steps:
-    #- setup-go-workspace
+    - wercker/setup-go-workspace
 
     # Gets the dependencies
     - script:
@@ -9,7 +9,7 @@ build:
         code: |
           cd $WERCKER_SOURCE_DIR
           go version
-          go get
+          go get -t ./...
           entrypoint
           ls .
 
