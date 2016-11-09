@@ -3,26 +3,26 @@ build:
   steps:
     - wercker/setup-go-workspace
 
-    # Gets the dependencies
     - script:
         name: go get
         code: |
           cd $WERCKER_SOURCE_DIR
           go version
           go get -t ./...
+    - script:
+        name: build
+        code: |
           entrypoint
+    - script:
+        name: output handler.zip
+        code: |
           mv handler.zip $WERCKER_OUTPUT_DIR
-          ls $WERCKER_OUTPUT_DIR
 
 deploy:
     steps:
-        - script:
-          name: check
-          code: |
-            ls $WERCKER_SOURCE_DIR
         - arjen/lambda:
             access_key: $AWS_ACCESS_KEY
             secret_key: $AWS_SECRET_KEY
             function_name: $AWS_LAMBDA_FUNCATION_NAME
-            region: ap-northeast-1
+            region: $AWS_REGION
             filepath: $WERCKER_SOURCE_DIR/handler.zip
