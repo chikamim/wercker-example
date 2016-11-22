@@ -23,7 +23,7 @@ type Product struct {
 
 func GetSpecialMacProducts() ([]*Product, error) {
 	specialDealsUrls := []string{
-		"http://www.apple.com/jp/shop/browse/home/specialdeals/mac/macbook_pro/15",
+		"http://www.apple.com/jp/shop/browse/home/specialdeals/mac/macbook_pro/13",
 	}
 
 	products := []*Product{}
